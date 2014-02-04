@@ -1,9 +1,9 @@
 {
-    "name": "startuplabs/behat-partial-runner",
+    "name": "m00t/behat-partial-runner",
     "type": "library",
     "description": "Partial runner extension for Behat",
     "keywords": ["behat", "bdd", "partial", "runner"],
-    "homepage": "https://github.com/StartupLabs/behat-partial-runner",
+    "homepage": "https://github.com/m00t/behat-partial-runner",
     "license": "MIT",
     "authors": [
         {
