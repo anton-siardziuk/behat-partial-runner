@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupLabs\Behat\PartialRunner\Console\Processor;
+namespace M00t\Behat\PartialRunner\Console\Processor;
 
 use Behat\Behat\Console\Processor\Processor;
 use Symfony\Component\Console\Command\Command;

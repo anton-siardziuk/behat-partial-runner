@@ -16,7 +16,10 @@
         "php": ">=5.3.6",
         "behat/behat": ">=2.4.6,<2.6.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
     "autoload": {
-        "psr-0": { "StartupLabs\\Behat\\PartialRunner": "src/" }
+        "psr-0": { "M00t\\Behat\\PartialRunner": "src/" }
     }
 }

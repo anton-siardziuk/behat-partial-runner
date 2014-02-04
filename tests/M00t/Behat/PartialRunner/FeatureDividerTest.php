@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupLabs\Behat\PartialRunner;
+namespace M00t\Behat\PartialRunner;
 
 class FeatureDividerTest extends \PHPUnit_Framework_TestCase {
 
@@ -16,7 +16,7 @@ class FeatureDividerTest extends \PHPUnit_Framework_TestCase {
     {
         $divider = new FeatureDivider(array('feature1', 'feature2'));
 
-        $this->setExpectedException('StartupLabs\Behat\PartialRunner\Exception');
+        $this->setExpectedException('M00t\Behat\PartialRunner\Exception');
         $divider->getFeaturesForPart(0);
     }
 
@@ -25,7 +25,7 @@ class FeatureDividerTest extends \PHPUnit_Framework_TestCase {
         $divider = new FeatureDivider(array('feature1', 'feature2'));
         $divider->setPartsCount(10);
 
-        $this->setExpectedException('StartupLabs\Behat\PartialRunner\Exception');
+        $this->setExpectedException('M00t\Behat\PartialRunner\Exception');
         $divider->getFeaturesForPart(10);
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupLabs\Behat\PartialRunner;
+namespace M00t\Behat\PartialRunner;
 
 
 class FeatureDivider {

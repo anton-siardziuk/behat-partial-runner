@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupLabs\Behat\PartialRunner;
+namespace M00t\Behat\PartialRunner;
 
 
 use Behat\Behat\Extension\ExtensionInterface;
@@ -14,13 +14,13 @@ class Extension implements ExtensionInterface
     {
         $container->setParameter(
             'behat.console.command.class',
-            '\StartupLabs\Behat\PartialRunner\Console\Command\PartialRunnerCommand'
+            '\M00t\Behat\PartialRunner\Console\Command\PartialRunnerCommand'
         );
 
         $container
             ->register(
                 'behat.partial_runner.console.processor.partial_runner',
-                '\StartupLabs\Behat\PartialRunner\Console\Processor\PartialRunnerProcessor'
+                '\M00t\Behat\PartialRunner\Console\Processor\PartialRunnerProcessor'
             )
             ->addArgument(new Reference('service_container'))
             ->addTag('behat.console.processor');

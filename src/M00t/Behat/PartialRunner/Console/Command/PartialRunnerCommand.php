@@ -1,10 +1,10 @@
 <?php
 
-namespace StartupLabs\Behat\PartialRunner\Console\Command;
+namespace M00t\Behat\PartialRunner\Console\Command;
 
 use Behat\Behat\Console\Command\BehatCommand;
 use Behat\Gherkin\Gherkin;
-use StartupLabs\Behat\PartialRunner\FeatureDivider;
+use M00t\Behat\PartialRunner\FeatureDivider;
 
 class PartialRunnerCommand extends BehatCommand
 {

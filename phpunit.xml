@@ -5,8 +5,8 @@
         colors="true"
         >
     <testsuites>
-        <testsuite name="StartupLabs Behat Partial Runner Tests">
-            <directory>tests/StartupLabs/Behat/PartialRunner</directory>
+        <testsuite name="m00t Behat Partial Runner Tests">
+            <directory>tests/M00t/Behat/PartialRunner</directory>
         </testsuite>
     </testsuites>
 </phpunit>
