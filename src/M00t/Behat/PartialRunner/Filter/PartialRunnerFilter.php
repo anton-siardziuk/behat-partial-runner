@@ -35,8 +35,7 @@ class PartialRunnerFilter extends SimpleFilter
      */
     public function isScenarioMatch(ScenarioInterface $scenario)
     {
-        $this->curScenario++;
-        return $this->curScenario % $this->countWorkers === $this->workerNumber;
+        return $this->curScenario++ % $this->countWorkers === $this->workerNumber;
     }
 
 }
