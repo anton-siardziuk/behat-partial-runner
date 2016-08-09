@@ -13,16 +13,10 @@ To get started, simply run the composer script included in the bin directory. Th
 > bin/composer install
 ```
 
-Adding `./bin` into your `$PATH` enviornment variable can keep you from having to type bin all the time.
-```
-> export PATH="./bin":$PATH
-```
-
-Now all the commands listed here can be executed from the project root without the preceeding `bin/`.
-
 ## Usage
 Once the setup is complete, usage is quite simple. Run the following in the project root diretory. Again this will use a docker container to execute the testing. You don't have to install PHPUnit.
 ```
+<<<<<<< 085ccd3c641808945b378f039be1fb8b8bc43609
 > bin/behat --help
 > bin/phpunit
 ```
