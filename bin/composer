@@ -1,0 +1,8 @@
+#!/bin/bash +x
+
+ARGS=''
+for i in "$@"; do
+  ARGS="$ARGS ${i}"
+done
+
+docker run --rm -v $(pwd):/data -w /data composer/composer $ARGS
