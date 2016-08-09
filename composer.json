@@ -10,6 +10,10 @@
             "name": "Anton Serdyuk",
             "email": "anton.serdyuk@gmail.com",
             "role": "developer"
+        }, {
+            "name": "Taysir Tayyab",
+            "email": "taysir.tayyab@gmail.com",
+            "role": "developer"
         }
     ],
     "require": {
