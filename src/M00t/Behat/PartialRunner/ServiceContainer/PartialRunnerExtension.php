@@ -20,7 +20,7 @@ class PartialRunnerExtension implements ExtensionInterface
         $definition = new Definition('M00t\Behat\PartialRunner\Controller\PartialRunnerController', array(
             new Reference(GherkinExtension::MANAGER_ID)
         ));
-        $definition->addTag(CliExtension::CONTROLLER_TAG, array('priority' => 999));
+        $definition->addTag(CliExtension::CONTROLLER_TAG, array('priority' => 1));
         $container->setDefinition(CliExtension::CONTROLLER_TAG . '.partial_runner', $definition);
     }
 
