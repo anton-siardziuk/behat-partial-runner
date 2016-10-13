@@ -63,6 +63,6 @@ class PartialRunnerController implements Controller
             throw new InvalidArgumentException("--worker-number ($worker) must be less than --count-workers ($total). ");
         }
 
-        $this->gherkin->addFilter(new PartialRunnerFilter($worker, $total));
+        $this->gherkin->addFilter(new PartialRunnerFilter($total, $worker));
     }
 }
