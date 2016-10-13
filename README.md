@@ -4,7 +4,7 @@ Behat extension for distributing Scenarios across multiple worker nodes.
 ## Dependancies
 This project is set up with docker to simplify handling dependencies. By using docker, you are not required to install any additional packages or resources on your system, regardless of what sources the project may end up using in the future. All you need is the Docker Engine. 
 - [Docker Engine](https://docs.docker.com/engine/installation/)
-- [Kitematic](https://kitematic.com/) (Optional) 
+- [Kitematic](https://kitematic.com/) (Optional)
 
 ## Setup
 To get started, simply run the composer script included in the bin directory. This will use a Docker container to set up the project. There is no need to install composer.
@@ -32,7 +32,7 @@ PHP is provided via a docker container as well. It supports all regular php comm
 
 ```
 > bin/php -a
-> bin/php script.php 
+> bin/php script.php
 > bin/php -v
 ```
 
