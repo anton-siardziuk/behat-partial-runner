@@ -5,7 +5,7 @@ use Behat\Gherkin\Node\OutlineNode;
 use Behat\Gherkin\Node\ScenarioNode;
 use Exception;
 use InvalidArgumentException;
-use M00t\Behat\PartialRunner\Filter\PartialRunnerFilter;
+use Behat\PartialRunner\Filter\PartialRunnerFilter;
 
 class ParallelWorkerFilterTest extends FilterTest
 {
@@ -97,7 +97,7 @@ class ParallelWorkerFilterTest extends FilterTest
         $feature = $filter->filterFeature($this->getParsedFeature());
         $scenarios = $feature->getScenarios();
 
-        $this->assertEquals(count($scenarios), 3);
+        $this->assertEquals(count($scenarios), 4);
         $this->assertEquals('Scenario#1', $scenarios[0]->getTitle());
         $this->assertEquals('Scenario#2', $scenarios[1]->getTitle());
         $this->assertEquals('Scenario#3', $scenarios[2]->getTitle());
@@ -109,6 +109,8 @@ class ParallelWorkerFilterTest extends FilterTest
             ['action' => 'act#2', 'outcome' => 'out#2'],
             ['action' => 'act#3', 'outcome' => 'out#3'],
         ], $scenarios[2]->getExampleTable()->getColumnsHash());
+
+        $this->assertEquals('Scenario#4', $scenarios[3]->getTitle());
     }
 
     /**
@@ -141,7 +143,7 @@ class ParallelWorkerFilterTest extends FilterTest
         $feature = $filter->filterFeature($this->getParsedFeature());
         $scenarios = $feature->getScenarios();
 
-        $this->assertEquals(count($scenarios), 2);
+        $this->assertEquals(count($scenarios), 3);
         $this->assertEquals('Scenario#2', $scenarios[0]->getTitle());
         $this->assertEquals('Scenario#3', $scenarios[1]->getTitle());
 
@@ -150,6 +152,8 @@ class ParallelWorkerFilterTest extends FilterTest
         $this->assertEquals([
             ['action' => 'act#2', 'outcome' => 'out#2'],
         ], $scenarios[1]->getExampleTable()->getColumnsHash());
+
+        $this->assertEquals('Scenario#4', $scenarios[2]->getTitle());
     }
 
     /**
@@ -198,7 +202,7 @@ class ParallelWorkerFilterTest extends FilterTest
         $feature = $filter->filterFeature($this->getParsedFeature());
         $scenarios = $feature->getScenarios();
 
-        $this->assertEquals(count($scenarios), 1);
+        $this->assertEquals(count($scenarios), 2);
         $this->assertEquals('Scenario#3', $scenarios[0]->getTitle());
 
         $this->assertTrue($scenarios[0] instanceof OutlineNode);
@@ -206,6 +210,8 @@ class ParallelWorkerFilterTest extends FilterTest
         $this->assertEquals([
             ['action' => 'act#1', 'outcome' => 'out#1'],
         ], $scenarios[0]->getExampleTable()->getColumnsHash());
+
+        $this->assertEquals('Scenario#4', $scenarios[1]->getTitle());
     }
 
     /**
@@ -237,8 +243,9 @@ class ParallelWorkerFilterTest extends FilterTest
         $feature = $filter->filterFeature($this->getParsedFeature());
         $scenarios = $feature->getScenarios();
 
-        $this->assertEquals(count($scenarios), 1);
+        $this->assertEquals(count($scenarios), 2);
         $this->assertEquals('Scenario#2', $scenarios[0]->getTitle());
+        $this->assertEquals('Scenario#4', $scenarios[1]->getTitle());
 
         /*****************
          *    Node 3    *

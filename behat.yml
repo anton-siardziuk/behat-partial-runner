@@ -1,3 +1,3 @@
 default:
   extensions:
-    M00t\Behat\PartialRunner\ServiceContainer\PartialRunnerExtension: ~
+    Behat\PartialRunner\ServiceContainer\PartialRunnerExtension: ~

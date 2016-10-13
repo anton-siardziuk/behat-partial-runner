@@ -68,6 +68,10 @@ Feature: Long feature with outline
       | act#1  | out#1   |
       | act#2  | out#2   |
       | act#3  | out#3   |
+
+  Scenario: Scenario#4
+    When an occurs
+    Then the outcome should be visible
 GHERKIN;
     }
 

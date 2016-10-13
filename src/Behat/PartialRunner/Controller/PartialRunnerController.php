@@ -1,13 +1,13 @@
 <?php
 
 
-namespace M00t\Behat\PartialRunner\Controller;
+namespace Behat\PartialRunner\Controller;
 
 
 use Behat\Gherkin\Gherkin;
 use Behat\Testwork\Cli\Controller;
 use InvalidArgumentException;
-use M00t\Behat\PartialRunner\Filter\PartialRunnerFilter;
+use Behat\PartialRunner\Filter\PartialRunnerFilter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

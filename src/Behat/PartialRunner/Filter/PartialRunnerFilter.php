@@ -1,7 +1,7 @@
 <?php
 
 
-namespace M00t\Behat\PartialRunner\Filter;
+namespace Behat\PartialRunner\Filter;
 
 
 use Behat\Gherkin\Filter\SimpleFilter;
@@ -49,28 +49,22 @@ class PartialRunnerFilter extends SimpleFilter
      */
     private function filterExampleNode(ExampleTableNode $examples)
     {
-        // $offset represents the index of the first element in the table we would collect for this node
-        $curr = $this->curScenario % $this->countWorkers;
-        $offset = ($this->countWorkers - $curr) % $this->countWorkers;
+        $table = $examples->getTable();
+        $newExamples = [];
 
-        // get the examples as array and pull off the first row (which are the headers)
-        $table = array_values($examples->getTable());
-        $filteredTable = [array_shift($table)];
-
-        // if the table is long enough, then grab an example
-        if ($offset < count($table)) {
-            for ($i = $offset; $i < count($table); $i += $this->countWorkers) {
-                $filteredTable[] = $table[$i];
+        foreach ($table as $lineNum => $example) {
+            // Add the header (first row) automatically, then add the examples that we should run.
+            if (!count($newExamples) || $this->curScenario++ % $this->countWorkers == 0) {
+                $newExamples[$lineNum] = $example;
             }
-        } else {
-            // technically we don't HAVE to throw an exception here, because this is to a certain extent expected
-            // but its nice because now @return can just be ExampleTableNode
+        }
+
+        if (count($newExamples) == 1) {
+            // All we got was the header.
             throw new RuntimeException('No examples will run on this node!');
         }
 
-        $this->curScenario += count($table);
-
-        return new ExampleTableNode($filteredTable, $examples->getKeyword());
+        return new ExampleTableNode($newExamples, $examples->getKeyword());
     }
 
     /**

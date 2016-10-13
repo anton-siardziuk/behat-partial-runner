@@ -1,11 +1,10 @@
 <?php
 
-namespace M00t\Behat\PartialRunner\ServiceContainer;
+namespace Behat\PartialRunner\ServiceContainer;
 
 
 use Behat\Behat\Gherkin\ServiceContainer\GherkinExtension;
 use Behat\Testwork\Cli\ServiceContainer\CliExtension;
-use Behat\Testwork\EventDispatcher\ServiceContainer\EventDispatcherExtension;
 use Behat\Testwork\ServiceContainer\Extension as ExtensionInterface;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -20,7 +19,7 @@ class PartialRunnerExtension implements ExtensionInterface
      */
     public function load(ContainerBuilder $container, array $config)
     {
-        $definition = new Definition('M00t\Behat\PartialRunner\Controller\PartialRunnerController', array(
+        $definition = new Definition('Behat\PartialRunner\Controller\PartialRunnerController', array(
             new Reference(GherkinExtension::MANAGER_ID)
         ));
         $definition->addTag(CliExtension::CONTROLLER_TAG, array('priority' => 1));
