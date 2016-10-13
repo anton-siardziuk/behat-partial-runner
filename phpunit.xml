@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
-        bootstrap="tests/bootstrap.php"
+        bootstrap="vendor/autoload.php"
         colors="true"
         >
     <testsuites>
-        <testsuite name="m00t Behat Partial Runner Tests">
-            <directory>tests/M00t/Behat/PartialRunner</directory>
+        <testsuite name="Behat Partial Runner Tests">
+            <directory>tests/Behat/PartialRunner</directory>
         </testsuite>
     </testsuites>
 </phpunit>

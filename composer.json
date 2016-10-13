@@ -1,25 +1,37 @@
 {
-    "name": "m00t/behat-partial-runner",
+    "name": "taysirtayyab/behat-partial-runner",
     "type": "library",
     "description": "Partial runner extension for Behat",
     "keywords": ["behat", "bdd", "partial", "runner"],
-    "homepage": "https://github.com/m00t/behat-partial-runner",
+    "homepage": "http://github.com/TaysirTayyab/behat-partial-runner",
+    "support": {
+        "issues": "http://github.com/TaysirTayyab/behat-partial-runner/issues",
+        "source": "http://github.com/TaysirTayyab/behat-partial-runner"
+    },
     "license": "MIT",
     "authors": [
         {
             "name": "Anton Serdyuk",
             "email": "anton.serdyuk@gmail.com",
             "role": "developer"
+        }, {
+            "name": "Taysir Tayyab",
+            "role": "developer"
         }
     ],
     "require": {
-        "php": ">=5.3.6",
+        "php": ">=5.6",
         "behat/behat": "~3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "^5.6"
+    },
+    "config": {
+        "platform": {
+            "php": "5.6"
+        }
     },
     "autoload": {
-        "psr-0": { "M00t\\Behat\\PartialRunner": "src/" }
+        "psr-0": { "Behat\\PartialRunner": "src/" }
     }
 }

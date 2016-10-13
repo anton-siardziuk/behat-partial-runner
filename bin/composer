@@ -1,0 +1,3 @@
+#!/bin/bash +x
+
+docker run --rm -v "$(pwd)":/data -w /data composer/composer:1.2 "$@"

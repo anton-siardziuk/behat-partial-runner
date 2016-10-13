@@ -1,27 +1,33 @@
 <?php
 
 
-namespace M00t\Behat\PartialRunner\Controller;
+namespace Behat\PartialRunner\Controller;
 
 
 use Behat\Gherkin\Gherkin;
 use Behat\Testwork\Cli\Controller;
-use M00t\Behat\PartialRunner\Filter\PartialRunnerFilter;
+use InvalidArgumentException;
+use Behat\PartialRunner\Filter\PartialRunnerFilter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class PartialRunnerController implements Controller
 {
     private $gherkin;
 
+    /**
+     * {@inheritdoc}
+     */
     public function __construct(Gherkin $gherkin)
     {
         $this->gherkin = $gherkin;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function configure(Command $command)
     {
         $command
@@ -41,8 +47,22 @@ class PartialRunnerController implements Controller
             );
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->gherkin->addFilter(new PartialRunnerFilter((int) $input->getOption('count-workers'), (int) $input->getOption('worker-number')));
+        $total = $input->getOption('count-workers');
+        $worker = $input->getOption('worker-number');
+
+        if ($total < 0 || $worker < 0) {
+            throw new InvalidArgumentException("--worker-number ($worker) and --count-workers ($total) must be greater than 0. ");
+        }
+
+        if ($worker >= $total) {
+            throw new InvalidArgumentException("--worker-number ($worker) must be less than --count-workers ($total). ");
+        }
+
+        $this->gherkin->addFilter(new PartialRunnerFilter($total, $worker));
     }
 }
