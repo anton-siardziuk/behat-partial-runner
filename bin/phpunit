@@ -1,8 +1,3 @@
 #!/bin/bash +x
 
-ARGS=''
-for i in "$@"; do
-  ARGS="$ARGS ${i}"
-done
-
-docker run -v $(pwd):/data -w /data --rm phpunit/phpunit --configuration=phpunit.xml $ARGS
+bin/php vendor/bin/phpunit $@
