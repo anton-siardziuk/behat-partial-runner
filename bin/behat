@@ -1,0 +1,3 @@
+#!/bin/bash +x
+
+php vendor/bin/behat "$@"
